@@ -17,26 +17,26 @@ public class DeptHandler
     @Autowired
     private DeptResponsitory deptResponsitory;
 
-    @GetMapping("/query/{page}/{size}")
+    @GetMapping("/query/{page}/{size}")     //分页获取dept表信息
     public Page<Dept> query(@PathVariable("page") Integer page, @PathVariable("size") Integer size)
     {
         Pageable pageable = PageRequest.of(page - 1,size);
         return deptResponsitory.findAll(pageable);
     }
 
-    @GetMapping("/query")
+    @GetMapping("/query")   //获取dept表所有信息
     public List<Dept> queryAll()
     {
         return deptResponsitory.findAll();
     }
 
-    @GetMapping("/query/findMax")
+    @GetMapping("/query/findMax")   //获取最大部门编号
     public long findMax()
     {
         return deptResponsitory.findMax();
     }
 
-    @PostMapping("/add")
+    @PostMapping("/add")    //增加部门
     public String add(@RequestBody Dept dept)
     {
         Dept result = deptResponsitory.save(dept);
@@ -50,13 +50,13 @@ public class DeptHandler
         }
     }
 
-    @DeleteMapping("/deleteById/{id}")
+    @DeleteMapping("/deleteById/{id}")  //删除部门
     public void deleteById(@PathVariable("id") Integer id)
     {
         deptResponsitory.deleteById(id);
     }
 
-    @PutMapping("/update")
+    @PutMapping("/update")  //更新部门信息
     public String update(@RequestBody Dept dept)
     {
         Dept result = deptResponsitory.save(dept);
