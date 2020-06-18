@@ -2,7 +2,6 @@ package com.javaproject.personnelmanagementsystem_jpa.entity;
 
 
 import lombok.Data;
-import org.springframework.scheduling.config.ScheduledTaskRegistrar;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
